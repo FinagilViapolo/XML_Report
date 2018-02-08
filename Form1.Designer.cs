@@ -41,6 +41,7 @@
             this.dgVersion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgRFCEmi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgRFCRec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgISR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgUUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +65,7 @@
             this.dgVersion,
             this.dgRFCEmi,
             this.dgRFCRec,
+            this.dgNombre,
             this.dgISR,
             this.dgFecha,
             this.dgUUID,
@@ -125,81 +127,103 @@
             // 
             this.dgCons.HeaderText = "No";
             this.dgCons.Name = "dgCons";
+            this.dgCons.ReadOnly = true;
             // 
             // dgSerie
             // 
             this.dgSerie.HeaderText = "Serie";
             this.dgSerie.Name = "dgSerie";
+            this.dgSerie.ReadOnly = true;
             // 
             // dgFolio
             // 
             this.dgFolio.HeaderText = "Folio";
             this.dgFolio.Name = "dgFolio";
+            this.dgFolio.ReadOnly = true;
             // 
             // dgVersion
             // 
             this.dgVersion.HeaderText = "Versión";
             this.dgVersion.Name = "dgVersion";
+            this.dgVersion.ReadOnly = true;
             // 
             // dgRFCEmi
             // 
             this.dgRFCEmi.HeaderText = "RFC Emi";
             this.dgRFCEmi.Name = "dgRFCEmi";
+            this.dgRFCEmi.ReadOnly = true;
             // 
             // dgRFCRec
             // 
             this.dgRFCRec.HeaderText = "RFC Rec";
             this.dgRFCRec.Name = "dgRFCRec";
+            this.dgRFCRec.ReadOnly = true;
+            // 
+            // dgNombre
+            // 
+            this.dgNombre.HeaderText = "Nombre";
+            this.dgNombre.Name = "dgNombre";
+            this.dgNombre.ReadOnly = true;
             // 
             // dgISR
             // 
             this.dgISR.HeaderText = "ISR";
             this.dgISR.Name = "dgISR";
+            this.dgISR.ReadOnly = true;
             // 
             // dgFecha
             // 
             this.dgFecha.HeaderText = "Fecha";
             this.dgFecha.Name = "dgFecha";
+            this.dgFecha.ReadOnly = true;
             // 
             // dgUUID
             // 
             this.dgUUID.HeaderText = "UUID";
             this.dgUUID.Name = "dgUUID";
+            this.dgUUID.ReadOnly = true;
             // 
             // dgTotal
             // 
             this.dgTotal.HeaderText = "Total";
             this.dgTotal.Name = "dgTotal";
+            this.dgTotal.ReadOnly = true;
             // 
             // dgFechaIPago
             // 
             this.dgFechaIPago.HeaderText = "Fecha In Pago";
             this.dgFechaIPago.Name = "dgFechaIPago";
+            this.dgFechaIPago.ReadOnly = true;
             // 
             // dgFechaFPago
             // 
             this.dgFechaFPago.HeaderText = "Fecha Fin Pago";
             this.dgFechaFPago.Name = "dgFechaFPago";
+            this.dgFechaFPago.ReadOnly = true;
             // 
             // dgTPercepciones
             // 
             this.dgTPercepciones.HeaderText = "Total Percepciones";
             this.dgTPercepciones.Name = "dgTPercepciones";
+            this.dgTPercepciones.ReadOnly = true;
             // 
             // dgTDeducciones
             // 
             this.dgTDeducciones.HeaderText = "Total Deducciones";
             this.dgTDeducciones.Name = "dgTDeducciones";
+            this.dgTDeducciones.ReadOnly = true;
             // 
             // dgEstatus
             // 
             this.dgEstatus.HeaderText = "Estatus SAT";
             this.dgEstatus.Name = "dgEstatus";
+            this.dgEstatus.ReadOnly = true;
             // 
             // dgVersionN
             // 
             this.dgVersionN.HeaderText = "Versión Nómina";
             this.dgVersionN.Name = "dgVersionN";
+            this.dgVersionN.ReadOnly = true;
             // 
             // frmReporte
             // 
@@ -235,6 +259,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgVersion;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgRFCEmi;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgRFCRec;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgISR;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgUUID;
