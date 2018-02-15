@@ -43,6 +43,7 @@
             this.dgRFCRec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgISR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgUUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +68,7 @@
             this.dgRFCRec,
             this.dgNombre,
             this.dgISR,
+            this.dgOP,
             this.dgFecha,
             this.dgUUID,
             this.dgTotal,
@@ -171,6 +173,12 @@
             this.dgISR.Name = "dgISR";
             this.dgISR.ReadOnly = true;
             // 
+            // dgOP
+            // 
+            this.dgOP.HeaderText = "O Pag (999)";
+            this.dgOP.Name = "dgOP";
+            this.dgOP.ReadOnly = true;
+            // 
             // dgFecha
             // 
             this.dgFecha.HeaderText = "Fecha";
@@ -261,6 +269,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgRFCRec;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgISR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgOP;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgUUID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgTotal;
