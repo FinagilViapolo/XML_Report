@@ -76,11 +76,11 @@ namespace XML_Report
                         }
                         if (node1.Name == "Fecha" || node1.Name == "fecha")
                         {
-                            dgvReporte.Rows[fila].Cells[9].Value = Convert.ToDateTime(node1.Value.ToString());
+                            dgvReporte.Rows[fila].Cells[10].Value = Convert.ToDateTime(node1.Value.ToString());
                         }
                         if (node1.Name == "Total" || node1.Name == "total")
                         {
-                            dgvReporte.Rows[fila].Cells[11].Value = node1.Value.ToString();
+                            dgvReporte.Rows[fila].Cells[12].Value = node1.Value.ToString();
                             total = node1.Value.ToString();
                         }
                         foreach (XmlNode node1_a in node.ChildNodes)
@@ -127,23 +127,23 @@ namespace XML_Report
                                         {
                                             if (node1_at.Name == "FechaInicialPago")
                                             {
-                                                dgvReporte.Rows[fila].Cells[12].Value = Convert.ToDateTime(node1_at.Value.ToString());
+                                                dgvReporte.Rows[fila].Cells[13].Value = Convert.ToDateTime(node1_at.Value.ToString());
                                             }
                                             if (node1_at.Name == "FechaFinalPago")
                                             {
-                                                dgvReporte.Rows[fila].Cells[13].Value = Convert.ToDateTime(node1_at.Value.ToString());
+                                                dgvReporte.Rows[fila].Cells[14].Value = Convert.ToDateTime(node1_at.Value.ToString());
                                             }
                                             if (node1_at.Name == "TotalPercepciones")
                                             {
-                                                dgvReporte.Rows[fila].Cells[14].Value = node1_at.Value.ToString();
+                                                dgvReporte.Rows[fila].Cells[15].Value = node1_at.Value.ToString();
                                             }
                                             if (node1_at.Name == "TotalDeducciones")
                                             {
-                                                dgvReporte.Rows[fila].Cells[15].Value = node1_at.Value.ToString();
+                                                dgvReporte.Rows[fila].Cells[16].Value = node1_at.Value.ToString();
                                             }
                                             if (node1_at.Name == "Version")
                                             {
-                                                dgvReporte.Rows[fila].Cells[17].Value = node1_at.Value.ToString();
+                                                dgvReporte.Rows[fila].Cells[18].Value = node1_at.Value.ToString();
                                             }
                                         }
                                         foreach (XmlNode node1_ab in node1_aa.ChildNodes)
@@ -182,7 +182,7 @@ namespace XML_Report
 
                                             if (node1_ab.Name == "nomina12:OtrosPagos")
                                             {
-                                                double imp_999 = 0;
+                                                double imp_446 = 0, imp_491 = 0;
                                                 foreach (XmlNode node1_ac in node1_ab.ChildNodes)
                                                 {
                                                     if (node1_ac.Name == "nomina12:OtroPago")
@@ -197,7 +197,17 @@ namespace XML_Report
                                                                     {
                                                                         if (node1_impo.Name == "Importe")
                                                                         {
-                                                                            imp_999 = imp_999 + Convert.ToDouble(node1_impo.Value);
+                                                                            imp_446 = imp_446 + Convert.ToDouble(node1_impo.Value);
+                                                                        }
+                                                                    }
+                                                                }
+                                                                if (node1_ad.Value == "_491")
+                                                                {
+                                                                    foreach (XmlNode node1_impo in node1_ac.Attributes)
+                                                                    {
+                                                                        if (node1_impo.Name == "Importe")
+                                                                        {
+                                                                            imp_491 = imp_491 + Convert.ToDouble(node1_impo.Value);
                                                                         }
                                                                     }
                                                                 }
@@ -207,7 +217,8 @@ namespace XML_Report
 
                                                     }
                                                 }
-                                                dgvReporte.Rows[fila].Cells[8].Value = imp_999.ToString();
+                                                dgvReporte.Rows[fila].Cells[8].Value = imp_446.ToString();
+                                                dgvReporte.Rows[fila].Cells[9].Value = imp_491.ToString();
                                             }
                                         }
                                     }
@@ -217,7 +228,7 @@ namespace XML_Report
                                         {
                                             if (node1_ab.Name == "UUID")
                                             {
-                                                dgvReporte.Rows[fila].Cells[10].Value = node1_ab.Value.ToString();
+                                                dgvReporte.Rows[fila].Cells[11].Value = node1_ab.Value.ToString();
                                                 uuid = node1_ab.Value.ToString();
                                             }
                                         }
@@ -229,7 +240,7 @@ namespace XML_Report
                     if (cbValidaSAT.Checked == true)
                     {
                         WS_SAT.ConsultaCFDIServiceClient servicio = new WS_SAT.ConsultaCFDIServiceClient();
-                        dgvReporte.Rows[fila].Cells[16].Value = servicio.Consulta("?re=" + rfc_emisor + "&rr=" + rfc_receptor + "&tt=" + total + "&id=" + uuid).Estado.ToString();
+                        dgvReporte.Rows[fila].Cells[17].Value = servicio.Consulta("?re=" + rfc_emisor + "&rr=" + rfc_receptor + "&tt=" + total + "&id=" + uuid).Estado.ToString();
                         frmReporte.ActiveForm.Update();
                     }
                     pbEstatusProceso.Value += 1;
@@ -293,33 +304,36 @@ namespace XML_Report
             objCelda.Value = "ISR";
 
             objCelda = HojaExcel.Range["I3", Type.Missing];
-            objCelda.Value = "O Pag (999)";
+            objCelda.Value = "O Pag (446)";
 
             objCelda = HojaExcel.Range["J3", Type.Missing];
-            objCelda.Value = "Fecha";
+            objCelda.Value = "O Pag (491)";
 
             objCelda = HojaExcel.Range["K3", Type.Missing];
+            objCelda.Value = "Fecha";
+
+            objCelda = HojaExcel.Range["L3", Type.Missing];
             objCelda.Value = "UUID";
             
-            objCelda = HojaExcel.Range["L3", Type.Missing];
+            objCelda = HojaExcel.Range["M3", Type.Missing];
             objCelda.Value = "Total";
 
-            objCelda = HojaExcel.Range["M3", Type.Missing];
+            objCelda = HojaExcel.Range["N3", Type.Missing];
             objCelda.Value = "Fecha I Pago";
 
-            objCelda = HojaExcel.Range["N3", Type.Missing];
+            objCelda = HojaExcel.Range["O3", Type.Missing];
             objCelda.Value = "Fecha F Pago";
 
-            objCelda = HojaExcel.Range["O3", Type.Missing];
+            objCelda = HojaExcel.Range["P3", Type.Missing];
             objCelda.Value = "Total Percepciones";
 
-            objCelda = HojaExcel.Range["P3", Type.Missing];
+            objCelda = HojaExcel.Range["Q3", Type.Missing];
             objCelda.Value = "Total Deducciones";
 
-            objCelda = HojaExcel.Range["Q3", Type.Missing];
+            objCelda = HojaExcel.Range["R3", Type.Missing];
             objCelda.Value = "Estatus SAT";
 
-            objCelda = HojaExcel.Range["R3", Type.Missing];
+            objCelda = HojaExcel.Range["S3", Type.Missing];
             objCelda.Value = "Versión N";
 
             int i = 4;
@@ -344,6 +358,7 @@ namespace XML_Report
                 HojaExcel.Cells[i, "P"] = Row.Cells[15].Value;
                 HojaExcel.Cells[i, "Q"] = Row.Cells[16].Value;
                 HojaExcel.Cells[i, "R"] = Row.Cells[17].Value;
+                HojaExcel.Cells[i, "S"] = Row.Cells[18].Value;
 
                 pbEstatusProceso.Value += 1;
                 i++;
