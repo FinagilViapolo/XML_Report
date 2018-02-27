@@ -26,6 +26,7 @@ namespace XML_Report
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Directorio de actualizaciones
             if (fdBwCargaXML.ShowDialog() == DialogResult.OK)
             {
                 dir_raiz = fdBwCargaXML.SelectedPath + "\\";
